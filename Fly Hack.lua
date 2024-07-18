@@ -1,6 +1,7 @@
--- Press X to fly
-getgenv().flying = false
-local FlyHackMain = {}
+
+local FlyHackMain = {
+	FlyFlyHackMain.FlySpeed = 15,
+}
 
 
 
@@ -50,32 +51,32 @@ local function start()
 		localplayer.Character.Humanoid.PlatformStand=true
 		local new=gyro.cframe - gyro.cframe.p + pos.position
 		if not keys.w and not keys.s and not keys.a and not keys.d then
-			speed=5
+			FlyHackMain.FlySpeed=5
 		end
 		if keys.w then
-			new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * speed
-			speed=speed+0
+			new = new + workspace.CurrentCamera.CoordinateFrame.lookVector * FlyHackMain.FlySpeed
+			FlyHackMain.FlySpeed=FlyHackMain.FlySpeed+0
 		end
 		if keys.s then
-			new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * speed
-			speed=speed+0
+			new = new - workspace.CurrentCamera.CoordinateFrame.lookVector * FlyHackMain.FlySpeed
+			FlyHackMain.FlySpeed=FlyHackMain.FlySpeed+0
 		end
 		if keys.d then
-			new = new * CFrame.new(speed,0,0)
-			speed=speed+0
+			new = new * CFrame.new(FlyHackMain.FlySpeed,0,0)
+			FlyHackMain.FlySpeed=FlyHackMain.FlySpeed+0
 		end
 		if keys.a then
-			new = new * CFrame.new(-speed,0,0)
-			speed=speed+0
+			new = new * CFrame.new(-FlyHackMain.FlySpeed,0,0)
+			FlyHackMain.FlySpeed=FlyHackMain.FlySpeed+0
 		end
-		if speed>10 then
-			speed=5
+		if FlyHackMain.FlySpeed>10 then
+			FlyHackMain.FlySpeed=5
 		end
 		pos.position=new.p
 		if keys.w then
-			gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(speed*0),0,0)
+			gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(-math.rad(FlyHackMain.FlySpeed*0),0,0)
 		elseif keys.s then
-			gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(speed*0),0,0)
+			gyro.cframe = workspace.CurrentCamera.CoordinateFrame*CFrame.Angles(math.rad(FlyHackMain.FlySpeed*0),0,0)
 		else
 			gyro.cframe = workspace.CurrentCamera.CoordinateFrame
 		end
@@ -84,7 +85,7 @@ local function start()
 	if pos then pos:Destroy() end
 	getgenv().flying=false
 	localplayer.Character.Humanoid.PlatformStand=false
-	speed=10
+	FlyHackMain.FlySpeed=10
 end
 e1=mouse.KeyDown:connect(function(key)
 	if not torso or not torso.Parent then getgenv().flying=false e1:disconnect() e2:disconnect() return end
