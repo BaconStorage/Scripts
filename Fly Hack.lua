@@ -1,6 +1,7 @@
 
+
 local FlyHackMain = {
-	FlyFlyHackMain.FlySpeed = 15,
+	FlySpeed = 15,
 }
 
 
