@@ -20,6 +20,7 @@ local Core = Instance.new("Part")
 Core.Name = "Core"
 Core.Size = Vector3.new(0.05, 0.05, 0.05)
 Core.Parent = workspace
+Core.CanCollide = false
 
 if workspace:FindFirstChild("Core") and getgenv().flying == false then
 	workspace.Core:Destroy()
