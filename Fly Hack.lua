@@ -101,7 +101,7 @@ e1=mouse.KeyDown:connect(function(key)
 		keys.d=true
 	elseif key=="x" then
 		if getgenv().flying==true then
-			getgenv().flying=false
+			
 		else
 			getgenv().flying=true
 			start()
