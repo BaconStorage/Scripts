@@ -45,7 +45,7 @@ local function start()
 	local gyro = Instance.new("BodyGyro",torso)
 	pos.Name="EPIXPOS"
 	pos.maxForce = Vector3.new(math.huge, math.huge, math.huge)
-	pos.position = torso.Position
+	pos.position = plr.Character.HumanoidRootPart.Position
 	gyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
 	gyro.cframe = torso.CFrame
 	repeat
