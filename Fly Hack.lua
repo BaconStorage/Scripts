@@ -10,7 +10,7 @@ local FlyHackMain = {
 function FlyHackMain:EnableFly(value)
     getgenv().flying = value
     
-local plr = game.Players.LocalPlayer
+local plr = game:GetService("Players").LocalPlayer
 local mouse = plr:GetMouse()
 
 local localplayer = plr
@@ -19,7 +19,7 @@ local localplayer = plr
 local Core = Instance.new("Part")
 Core.Name = "Core"
 Core.Size = Vector3.new(0.05, 0.05, 0.05)
-Core.Parent = workspace
+Core.Parent = game:GetService("Workspace")
 Core.CanCollide = false
 
 if workspace:FindFirstChild("Core") and getgenv().flying == false then
